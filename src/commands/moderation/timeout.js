@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js')
+const { version } = process.env;
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -25,7 +26,7 @@ module.exports = {
             .setColor(0x000000)
             .setTimestamp(Date.now())
             .setFooter({
-                text: `Version 0.0.1`
+                text: version
             })
 
 
@@ -43,7 +44,7 @@ module.exports = {
             .setColor(0x4CBB17)
             .setTimestamp(Date.now())
             .setFooter({
-                text: `Version 0.0.1`
+                text: version
             })
             
             await interaction.editReply({

@@ -12,7 +12,7 @@ module.exports = {
             } catch (error) {
                 console.error(error)
                 await interaction.reply({
-                    content: `my coding sucks ass`
+                    content: `:no_entry_sign: Sorry, an unknown error occurred.`
                 });
             }
         }

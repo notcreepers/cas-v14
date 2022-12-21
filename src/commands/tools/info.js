@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
+const { version } = process.env;
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -13,7 +14,7 @@ module.exports = {
             .setColor(0xFFA500)
             .setTimestamp(Date.now())
             .setFooter({
-                text: `Version 0.0.1`
+                text: version
             })
             .addFields([
                 {
