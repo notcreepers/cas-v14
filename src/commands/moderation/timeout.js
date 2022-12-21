@@ -32,11 +32,11 @@ module.exports = {
 
         user.send({
             embeds: [Embed]
-        }).catch(console.log('User\'s DMs are disabled, or an unknown error occurred.'));
+        }).catch((err) => {console.log('User\'s DMs are disabled, or an unknown error occurred.')});
 
         await member.timeout(time == null ? null : time * 60 * 1000, reason).catch(console.error);
 
-        const embed = await interaction.deferReply({
+        const embed1 = await interaction.deferReply({
             fetchReply: true
         });
         const newEmbed = new EmbedBuilder()

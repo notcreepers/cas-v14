@@ -29,7 +29,7 @@ module.exports = {
 
         user.send({
             embeds: [Embed]
-        }).catch(console.log('user\'s DMs are disabled, or an unknown error occurred.'));
+        }).catch((err) => {console.log('User\'s DMs are disabled, or an unknown error occurred.')});
 
         await member.ban({
             deleteMessageDays: 1,
