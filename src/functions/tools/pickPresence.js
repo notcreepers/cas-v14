@@ -22,11 +22,11 @@ module.exports = (client) => {
 
         client.user.setPresence({
             activites: [{
-                
-            }],
-            name: options[option].text,
+                name: options[option].text,
                 type: options[option].type,
-            status: options[option].status
-        })
+            },
+        ],
+            status: options[option].status,
+        });
     };
 };
