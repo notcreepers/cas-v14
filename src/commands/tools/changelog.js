@@ -19,7 +19,7 @@ module.exports = {
             .addFields([
                 {
                     name: `21/12/2022`,
-                    value: `- Fixed the hard crash that would occur whenever the bot would attempt to DM a user that was punished by moderator commands (ban, kick, or timeout) if they had DMs disabled and/or blocked the bot.\n\n- Added the Add to Server button in the user pop-out. `,
+                    value: `- Fixed the hard crash that would occur whenever the bot would attempt to DM a user that was punished by moderator commands (ban, kick, or timeout) if they had DMs disabled and/or blocked the bot.\n\n- Made it so if there was an error punishing a user it throws an error instead of saying it was successful. \n\n- Added the Add to Server button in the user pop-out. `,
                 },
                 {
                     name: `20/12/2022`,

@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js')
 const { version } = process.env;
-const message = 'user\'s DMs are disabled, or an unknown error occurred.'
+const message = 'There was a problem kicking this user.'
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -33,7 +33,9 @@ module.exports = {
         }).catch((err) => {console.log('User\'s DMs are disabled, or an unknown error occurred.')});
             
 
-        await member.kick(reason).catch(console.error);
+        await member.kick(reason).catch((err) => {reply({
+            content: message
+        });});
 
         const embed = await interaction.deferReply({
             fetchReply: true

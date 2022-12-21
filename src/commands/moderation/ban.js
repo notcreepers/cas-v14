@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js')
 const { version } = process.env;
+const message = 'There was a problem kicking this user.'
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -34,7 +35,9 @@ module.exports = {
         await member.ban({
             deleteMessageDays: 1,
             reason: reason
-        }).catch(console.error);
+        }).catch((err) => {reply({
+            content: message
+        });});
 
         const embed = await interaction.deferReply({
             fetchReply: true
