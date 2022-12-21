@@ -20,4 +20,4 @@ Moderation commands are actually locked behind moderation, the token is no longe
 
 ### Shameless Self-Promotion
 
-If you would like to see any of my other works on YouTube or something else please check out my [linktree](https://linktr.ee/notcreepers).
+If you would like to see any of my other works on YouTube or check out my social media please check out my [linktree](https://linktr.ee/notcreepers).
