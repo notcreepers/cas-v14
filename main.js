@@ -1,5 +1,6 @@
 require('dotenv').config();
-const { token } = process.env;
+const { token, databaseToken } = process.env;
+const { connect } = require('mongoose');
 const { version } = process.env;
 const { Client, Collection, GatewayIntentBits, EmbedBuilder, PermissionsBitField, Permissions, MessageManager, Embed, Events, GuildMember, GuildHubType, AuditLogEvent } = require('discord.js');
 const fs = require('fs');
@@ -17,6 +18,9 @@ for (const folder of functionFolders) {
 client.handleEvents();
 client.handleCommands();
 client.login(token);
+(async () => {
+    await connect(databaseToken).catch(console.error);
+})();
 
 
 
@@ -28,11 +32,14 @@ client.on(Events.GuildBanAdd, async member => {
     .then(async audit => {
         const { executor } = audit.entries.first()
 
+
+        
+
         const name = member.user.username;
         const id = member.user.id;
 
         const channelID = '1072926331567882312';
-        const mChannel = await member.guild.channels.cache.get(channelID);
+        let mChannel = await member.guild.channels.cache.find(channel => channel.name === 'bot-log');
 
         const embed = new EmbedBuilder()
         .setTitle(`Member Banned`)
@@ -57,11 +64,14 @@ client.on(Events.GuildBanRemove, async member => {
     .then(async audit => {
         const { executor } = audit.entries.first()
 
+
+        
+
         const name = member.user.username;
         const id = member.user.id;
 
         const channelID = '1072926331567882312';
-        const mChannel = await member.guild.channels.cache.get(channelID);
+        let mChannel = await member.guild.channels.cache.find(channel => channel.name === 'bot-log');
 
         const embed = new EmbedBuilder()
         .setTitle(`Member Unbanned`)
@@ -78,7 +88,7 @@ client.on(Events.GuildBanRemove, async member => {
     })
 })
 
-/*
+
 client.on(Events.MessageUpdate, async (message, newMessage) => {
 
     message.guild.fetchAuditLogs({
@@ -92,7 +102,7 @@ client.on(Events.MessageUpdate, async (message, newMessage) => {
         if (!mes) return;
 
         const channelID = '1072926331567882312';
-        const mChannel = await message.guild.channels.cache.get(channelID);
+        let mChannel = await message.guild.channels.cache.find(channel => channel.name === 'bot-log');
 
         const embed = new EmbedBuilder()
         .setTitle(`Message Edited`)
@@ -109,15 +119,18 @@ client.on(Events.MessageUpdate, async (message, newMessage) => {
     })
 })
 
-*/
 
-client.on(Events.ChannelCreate, async channel => {
+
+client.on(Events.ChannelCreate, async (channel, interaction, member) => {
 
     channel.guild.fetchAuditLogs({
         type: AuditLogEvent.ChannelCreate,
     })
     .then(async audit => {
         const { executor } = audit.entries.first()
+
+
+        
 
         const name = channel.name;
         const id = channel.id;
@@ -130,8 +143,8 @@ client.on(Events.ChannelCreate, async channel => {
         if (type == 5) type = 'Announcement'
         if (type == 5) type = 'Category'
 
-        const channelID = '1072926331567882312';
-        const mChannel = await channel.guild.channels.cache.get(channelID);
+        const channelID = ('blah blah blah');
+        let mChannel = await channel.guild.channels.cache.find(channel => channel.name === 'bot-log');
 
         const embed = new EmbedBuilder()
         .setTitle(`Channel Created`)
@@ -149,13 +162,16 @@ client.on(Events.ChannelCreate, async channel => {
     })
 })
 
-client.on(Events.ChannelDelete, async channel => {
+client.on(Events.ChannelDelete, async (channel, interaction, member) => {
 
     channel.guild.fetchAuditLogs({
         type: AuditLogEvent.ChannelDelete,
     })
     .then(async audit => {
         const { executor } = audit.entries.first()
+
+
+        
 
         const name = channel.name;
         const id = channel.id;
@@ -169,7 +185,7 @@ client.on(Events.ChannelDelete, async channel => {
         if (type == 5) type = 'Category'
 
         const channelID = '1072926331567882312';
-        const mChannel = await channel.guild.channels.cache.get(channelID);
+        let mChannel = await channel.guild.channels.cache.find(channel => channel.name === 'bot-log');
 
         const embed = new EmbedBuilder()
         .setTitle(`Channel Deleted`)
@@ -199,7 +215,7 @@ client.on(Events.GuildMemberRemove, async member => {
         const id = member.user.id;
 
         const channelID = '1072926331567882312';
-        const mChannel = await member.guild.channels.cache.get(channelID);
+        let mChannel = await member.guild.channels.cache.find(channel => channel.name === 'bot-log');
 
         const embed = new EmbedBuilder()
         .setTitle(`Member Kicked`)

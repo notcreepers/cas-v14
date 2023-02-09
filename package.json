@@ -17,6 +17,7 @@
     "dotenv": "^16.0.3",
     "https": "^1.0.0",
     "images-scraper": "^6.4.0",
+    "mongoose": "^6.9.1",
     "xml2js": "^0.4.23"
   }
 }
