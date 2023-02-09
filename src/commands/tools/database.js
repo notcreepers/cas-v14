@@ -1,11 +1,12 @@
 const Guild = require('../../schemas/guild');
-const { SlashCommandBuilder } = require('discord.js')
+const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js')
 const mongoose = require('mongoose');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('database')
         .setDescription('Returns info from MongoDB')
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addStringOption(option => option.setName('logchannelid').setDescription('Enter the Log Channel ID').setRequired(true)),
     async execute(interaction, client) {
         let guildProfile = await Guild.findOne({ guildId: interaction.guild.id});

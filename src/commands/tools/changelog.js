@@ -19,7 +19,7 @@ module.exports = {
             .addFields([
                 {
                     name: `09/02/2023`,
-                    value: `- Fixed the Moderation Logging, it can now send in multiple servers, as long as the channel is named "bot-log" (basically a band-aid fix, but a fix none the less).\n\n- Setup MongoDB even though my band-aid fix doesn't require it, the full fix in the future will.`,
+                    value: `- Fixed the Moderation Logging, it can now send in multiple servers, as long as the channel is named "bot-log" (basically a band-aid fix, but a fix none the less).\n\n- Setup MongoDB even though my band-aid fix doesn't require it, the full fix in the future will.\n\n- Disabled Kick Logging, as it shouldn't be sending when bans occur. Added an unban command.`,
                 },
                 {
                     name: `08/02/2023`,

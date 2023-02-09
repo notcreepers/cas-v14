@@ -20,7 +20,7 @@ module.exports = {
                 const embed = await interaction.deferReply({
                     fetchReply: true
                 });
-                const newEmbed = new EmbedBuilder()
+                const errEmbed = new EmbedBuilder()
                     .setTitle(`:no_entry_sign: Sorry, an unknown error occurred.`)
                     .setColor(0xFFA500)
                     .setTimestamp(Date.now())
@@ -30,7 +30,7 @@ module.exports = {
                     })
                     
                     await interaction.editReply({
-                        embeds: [newEmbed]
+                        embeds: [errEmbed]
                     });
             }
         }

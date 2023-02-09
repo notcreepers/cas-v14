@@ -202,7 +202,7 @@ client.on(Events.ChannelDelete, async (channel, interaction, member) => {
             mChannel.send({ embeds: [embed] })
     })
 })
-
+/*
 client.on(Events.GuildMemberRemove, async member => {
 
     member.guild.fetchAuditLogs({
@@ -231,3 +231,4 @@ client.on(Events.GuildMemberRemove, async member => {
             mChannel.send({ embeds: [embed] })
     })
 })
+*/
