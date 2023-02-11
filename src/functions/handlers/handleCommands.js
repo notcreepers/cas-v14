@@ -26,7 +26,7 @@ module.exports = (client) => {
                 body: client.commandArray,
             });
 
-            console.log("some other bullshit");
+            console.log("some other fortnite bullshit");
         } catch (error) {
             console.error(error);
         }
