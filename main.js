@@ -88,7 +88,7 @@ client.on(Events.GuildBanRemove, async member => {
     })
 })
 
-
+/*
 client.on(Events.MessageUpdate, async (message, newMessage) => {
 
     message.guild.fetchAuditLogs({
@@ -118,7 +118,7 @@ client.on(Events.MessageUpdate, async (message, newMessage) => {
             mChannel.send({ embeds: [embed] })
     })
 })
-
+*/
 
 
 client.on(Events.ChannelCreate, async (channel, interaction, member) => {
@@ -202,6 +202,12 @@ client.on(Events.ChannelDelete, async (channel, interaction, member) => {
             mChannel.send({ embeds: [embed] })
     })
 })
+
+
+
+
+
+
 /*
 client.on(Events.GuildMemberRemove, async member => {
 

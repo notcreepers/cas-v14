@@ -33,7 +33,7 @@ module.exports = {
             .addFields([
                 {
                     name: `Developer`,
-                    value: `[Creepers#0001](https://linktr.ee/notcreepers)`,
+                    value: `[creepers.](https://linktr.ee/notcreepers)`,
                 },
                 {
                     name: `Bot ID`,
